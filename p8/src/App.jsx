@@ -21,13 +21,15 @@ function App() {
 
   const toggleComplete = (id) => {
     setTodos((prevTodos) =>
-      prevTodos.map((t) => (t.id === id ? {...t, completed: !t.completed} : t))
+      prevTodos.map((prevTodo) =>
+        t.id === id ? {...prevTodo, completed: !prevTodo.completed} : prevTodo
+      )
     );
   };
 
   useEffect(() => {
     const todos = JSON.parse(localStorage.getItem("todos"));
-    if (todos && todos.length > 0) {
+    if (!!todos && todos.length > 0) {
       setTodos(todos);
     }
   }, []);
